@@ -15,7 +15,7 @@ const Home: NextPage = () => {
           Welcome to <span className="text-blue-600">MyWeb!</span>
         </h1>
 
-        <p className="mt-3 text-2xl">
+        <p className="mt-3 ">
           Get started by editing{' '}
           <code className="rounded-md bg-gray-100 p-3 font-mono text-lg">
             pages/index.tsx
