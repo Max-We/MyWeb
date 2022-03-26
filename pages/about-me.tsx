@@ -3,7 +3,7 @@ import Card from '../components/about me/card'
 
 export default function AboutMe() {
   return (
-    <div className="container mx-auto grid place-items-center px-3 sm:p-0">
+    <div className="grid place-items-center px-3 sm:p-0">
       <span className="mb-7">
         <Image
           src="/profile-picture.png"
