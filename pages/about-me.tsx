@@ -33,7 +33,7 @@ export default function AboutMe() {
         content={[
           `I completed a vocational education as application developer at Omniga
         GmbH in 2021.`,
-          ` Right now I’m studying Mediainformatics at University Regensburg and
+          `Currently, I’m studying Media informatics at University Regensburg and
         working as a student at Vector Informatik.`,
           `I love developing apps using React.js, SwiftUI and other technologies.
         You can have a look at my projects on the MyProject page.`,
