@@ -10,7 +10,7 @@ export default function AboutMe() {
           alt="Picture of me"
           width={200}
           height={200}
-          className="rounded-full"
+          className="rounded-full border-solid"
         />
       </span>
 
@@ -29,7 +29,7 @@ export default function AboutMe() {
       />
 
       <Card
-        title="📄 Experiences"
+        title="💻 Experiences"
         content={[
           `I completed a vocational education as application developer at Omniga
         GmbH in 2021.`,
@@ -41,7 +41,7 @@ export default function AboutMe() {
       />
 
       <Card
-        title="Business Inquieries"
+        title="📥 Business Inquieries"
         content={[
           `If you want to work with me, you can message me on LinkedIn or send me an
           email at maximilian.weichart@icloud.com`,
