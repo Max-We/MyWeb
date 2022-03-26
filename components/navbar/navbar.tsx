@@ -7,7 +7,15 @@ export default function Navbar() {
   const router = useRouter()
 
   return (
-    <div className="fixed grid h-screen w-72 content-start gap-2 border-r p-5 text-lg">
+    // Todo: z-index above card hover
+    <div
+      className="fixed bottom-0 flex w-screen justify-around border-t
+        bg-white xl:grid xl:h-screen xl:w-72 xl:content-start xl:justify-start xl:gap-2 xl:border-r xl:border-t-0 xl:bg-none xl:p-5 xl:text-lg"
+    >
+      {/* <h2 className="invisible w-0 xl:visible xl:w-auto xl:p-4 xl:text-3xl">
+        MyWeb
+      </h2> */}
+
       <NavbarButton
         label="Home"
         href="/home"
@@ -57,9 +65,18 @@ export function NavbarButton({
 
   return (
     <Link href={href}>
-      <button className="flex h-14 items-center justify-start rounded-full p-2 text-left align-middle hover:bg-zinc-200">
-        <HeroIcon className="mr-2 h-8 w-8" />
-        <span className={`${isActive && 'font-bold'}`}>{label}</span>
+      <button
+        className="flex h-14 items-center justify-center
+        xl:justify-start xl:rounded-full xl:px-4 xl:align-middle xl:hover:bg-zinc-200"
+      >
+        <HeroIcon className="h-8 w-8 xl:mr-2" />
+        <span
+          className={`${
+            isActive && 'font-bold'
+          } invisible w-0 xl:visible xl:w-auto`}
+        >
+          {label}
+        </span>
       </button>
     </Link>
   )
