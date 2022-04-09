@@ -4,7 +4,7 @@
     "name": "MyWeb"
   },
   "api": {
-    "projectId": "hmv9bm7j",
+    "projectId": "vpi5l1xp",
     "dataset": "production"
   },
   "plugins": [
@@ -16,9 +16,7 @@
   ],
   "env": {
     "development": {
-      "plugins": [
-        "@sanity/vision"
-      ]
+      "plugins": ["@sanity/vision"]
     }
   },
   "parts": [
