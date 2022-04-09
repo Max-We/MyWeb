@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import Card from '../components/about me/card'
+import AboutMeCard from '../components/about me/about-me-card'
 
 export default function AboutMe() {
   return (
@@ -14,12 +14,12 @@ export default function AboutMe() {
         />
       </span>
 
-      <Card
+      <AboutMeCard
         title="👋 I'm Max!"
         content={['I love building apps and working on innovative projects.']}
       />
 
-      <Card
+      <AboutMeCard
         title="🙋‍♂️ About me"
         content={[
           `I’m writing about my projects, thoughts and learning on my MyBlog and
@@ -28,7 +28,7 @@ export default function AboutMe() {
         ]}
       />
 
-      <Card
+      <AboutMeCard
         title="💻 Experiences"
         content={[
           `I completed a vocational education as application developer at Omniga
@@ -40,7 +40,7 @@ export default function AboutMe() {
         ]}
       />
 
-      <Card
+      <AboutMeCard
         title="📥 Business Inquieries"
         content={[
           `If you want to work with me, you can message me on LinkedIn or send me an

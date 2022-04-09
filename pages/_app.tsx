@@ -6,7 +6,9 @@ function MyWeb({ Component, pageProps }: AppProps) {
   return (
     <div className="container mx-auto">
       <Navbar></Navbar>
-      <Component {...pageProps} />
+      <div className="container mx-auto px-80 py-5">
+        <Component {...pageProps} />
+      </div>
     </div>
   )
 }

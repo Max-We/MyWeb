@@ -1,7 +1,7 @@
 import {
+  BookOpenIcon,
   CodeIcon,
   HeartIcon,
-  HomeIcon,
   LightningBoltIcon,
   UserCircleIcon,
 } from '@heroicons/react/outline'
@@ -9,13 +9,13 @@ import {
 import {
   CodeIcon as CodeIconSolid,
   HeartIcon as HeartIconSolid,
-  HomeIcon as HomeIconSolid,
+  BookOpenIcon as BookOpenIconSolid,
   LightningBoltIcon as LightningBoltIconSolid,
   UserCircleIcon as UserCircleIconSolid,
 } from '@heroicons/react/solid'
 
 export enum NavbarIcon {
-  Home,
+  Blog,
   Activity,
   Projects,
   AboutMe,
@@ -23,7 +23,7 @@ export enum NavbarIcon {
 }
 
 export const navbarIcons = {
-  [NavbarIcon.Home]: HomeIcon,
+  [NavbarIcon.Blog]: BookOpenIcon,
   [NavbarIcon.Activity]: LightningBoltIcon,
   [NavbarIcon.Projects]: CodeIcon,
   [NavbarIcon.AboutMe]: UserCircleIcon,
@@ -31,7 +31,7 @@ export const navbarIcons = {
 }
 
 export const navbarIconsSolid = {
-  [NavbarIcon.Home]: HomeIconSolid,
+  [NavbarIcon.Blog]: BookOpenIconSolid,
   [NavbarIcon.Activity]: LightningBoltIconSolid,
   [NavbarIcon.Projects]: CodeIconSolid,
   [NavbarIcon.AboutMe]: UserCircleIconSolid,
