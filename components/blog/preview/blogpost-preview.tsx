@@ -23,8 +23,8 @@ export default function BlogpostPreview(props: BlogpostPreviewProps) {
               </div>
               <Image
                 src={props.imageUrl}
-                width={200}
-                height={200}
+                width={500}
+                height={500}
                 layout="intrinsic"
                 objectFit="cover"
                 className="rounded-r-xl"

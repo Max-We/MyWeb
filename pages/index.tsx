@@ -59,7 +59,11 @@ export async function getStaticProps() {
       summary: preview.summary,
       publishedAt: preview.publishedAt,
       readingDurationMinutes: preview.readingDuration,
-      imageUrl: imageBuilder.image(preview.mainImage).url(),
+      imageUrl: imageBuilder
+        .image(preview.mainImage)
+        .width(500)
+        .height(500)
+        .url(),
       displaySize: 'Small',
     }
   })
