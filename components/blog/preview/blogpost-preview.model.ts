@@ -1,10 +1,13 @@
+import { Post } from 'schema'
+
 export type BlogpostPreviewSize = 'Small' | 'Medium' | 'Large'
 
 export type BlogpostPreviewProps = {
-  id: string
-  title: string
-  summary: string
-  createDate: string
-  readingDurationMinutes: number
+  slug: Post['slug']
+  title: Post['title']
+  summary: Post['summary']
+  publishedAt: Post['publishedAt']
+  readingDurationMinutes: Post['readingDuration']
+  imageUrl: string
   displaySize: BlogpostPreviewSize
 }

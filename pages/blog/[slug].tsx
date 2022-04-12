@@ -4,7 +4,6 @@ import { groq } from 'next-sanity'
 import Head from 'next/head'
 import ReactMarkdown from 'react-markdown'
 import { Post } from 'schema'
-// import utilStyles from '../../styles/utils.module.css'
 
 const getAllSlugsQuery = groq`
       *[_type == "post"] { slug }
@@ -22,13 +21,12 @@ export default function Article({ postdata }: { postdata: Post }) {
       </Head>
       <article>
         <h1 className="mb-6 text-5xl">{postdata.title}</h1>
-        {/* Todo: Parse date from sanity */}
         <div className="mb-2 text-neutral-500">
-          <ArticleDate date={postdata.publishedAt!} />
+          <ArticleDate date={postdata.publishedAt} />
         </div>
         <div className="prose">
           <ReactMarkdown>{postdata.body}</ReactMarkdown>
-        </div>{' '}
+        </div>
       </article>
     </>
   )

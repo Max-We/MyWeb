@@ -52,6 +52,13 @@ export interface Post extends SanityDocument {
   title: string;
 
   /**
+   * Summary — `string`
+   *
+   *
+   */
+  summary: string;
+
+  /**
    * Slug — `slug`
    *
    *
@@ -75,7 +82,7 @@ export interface Post extends SanityDocument {
    *
    *
    */
-  categories: Array<SanityKeyedReference<Category>>;
+  categories?: Array<SanityKeyedReference<Category>>;
 
   /**
    * Published at — `datetime`
@@ -83,6 +90,13 @@ export interface Post extends SanityDocument {
    *
    */
   publishedAt: string;
+
+  /**
+   * Reading duration — `number`
+   *
+   *
+   */
+  readingDuration: number;
 
   /**
    * Body — `markdown`
@@ -112,7 +126,7 @@ export interface Category extends SanityDocument {
    *
    *
    */
-  description: string;
+  description?: string;
 }
 
 export type Documents = Post | Category;
