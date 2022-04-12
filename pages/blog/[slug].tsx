@@ -1,10 +1,7 @@
-import { getClient, usePreviewSubscription } from '@lib/sanity'
+import { getClient } from '@lib/sanity'
 import { groq } from 'next-sanity'
 import Head from 'next/head'
-import { useRouter } from 'next/router'
 import ReactMarkdown from 'react-markdown'
-import ArticleDate from '../../components/blog/article/article-date'
-import { ArticleProps } from '../../components/blog/article/article.model'
 // import utilStyles from '../../styles/utils.module.css'
 
 export async function getStaticProps({ params, preview = false }) {
