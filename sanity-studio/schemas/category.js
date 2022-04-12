@@ -14,8 +14,6 @@ export default {
       name: 'description',
       title: 'Description',
       type: 'text',
-      codegen: { required: true },
-      validation: (Rule) => Rule.required(),
     },
   ],
 }

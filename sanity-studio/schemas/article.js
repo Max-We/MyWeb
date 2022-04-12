@@ -1,6 +1,6 @@
 export default {
-  name: 'post',
-  title: 'Post',
+  name: 'article',
+  title: 'Article',
   type: 'document',
   fields: [
     {
@@ -8,7 +8,14 @@ export default {
       title: 'Title',
       type: 'string',
       codegen: { required: true },
-      validation: (Rule) => Rule.required(),
+      validation: (Rule) => Rule.required().max(80),
+    },
+    {
+      name: 'summary',
+      title: 'Summary',
+      type: 'string',
+      codegen: { required: true },
+      validation: (Rule) => Rule.required().min(10).max(115),
     },
     {
       name: 'slug',
@@ -36,8 +43,8 @@ export default {
       title: 'Categories',
       type: 'array',
       of: [{ type: 'reference', to: { type: 'category' } }],
-      codegen: { required: true },
-      validation: (Rule) => Rule.required(),
+      // codegen: { required: true },
+      // validation: (Rule) => Rule.required(),
     },
     {
       name: 'publishedAt',
@@ -45,6 +52,13 @@ export default {
       type: 'datetime',
       codegen: { required: true },
       validation: (Rule) => Rule.required(),
+    },
+    {
+      name: 'readingDuration',
+      title: 'Reading duration (minutes)',
+      type: 'number',
+      codegen: { required: true },
+      validation: (Rule) => Rule.required().min(1).max(60),
     },
     {
       name: 'body',

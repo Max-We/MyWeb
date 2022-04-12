@@ -1,23 +1,69 @@
-import BlogpostPreview from '../components/blog/preview/blogpost-preview'
+import { getClient } from '@lib/sanity'
+import { ArticlePreviewProps } from 'components/blog/preview/article-preview.model'
+import { groq } from 'next-sanity'
+import { Article } from 'schema'
+import ArticlePreview from '../components/blog/preview/article-preview'
+import imageUrlBuilder from '@sanity/image-url'
 
-export default function Home() {
+// Todo: Add pagination if more than 20 posts
+const getAllPreviewsQuery = groq`
+      *[_type == "article"] | order(publishedAt desc)[0...20] {
+        slug,
+        title,
+        summary,
+        publishedAt,
+        mainImage,
+        readingDuration
+      }
+  `
+
+export default function Home({
+  previewsdata,
+}: {
+  previewsdata: ArticlePreviewProps[]
+}) {
   return (
     <>
-      <p>
-        On my blog I share my thoughts on various topics like technology,
-        science and society.
-      </p>
-
-      <br />
-
-      <BlogpostPreview
-        id={'0'}
-        title="Lorem ipsum dolor sit amet, consetetur sadipscing"
-        summary="Lorem ipsum dolor sit amet, consetetur sadipscing elit, dolor sit amet."
-        createDate={new Date().toISOString()}
-        readingDurationMinutes={2}
-        displaySize={'Small'}
-      ></BlogpostPreview>
+      {previewsdata.map((previewdata) => (
+        <ArticlePreview
+          slug={previewdata.slug}
+          title={previewdata.title}
+          summary={previewdata.summary}
+          publishedAt={previewdata.publishedAt}
+          readingDurationMinutes={previewdata.readingDurationMinutes}
+          imageUrl={previewdata.imageUrl}
+          displaySize={'Small'}
+        />
+      ))}
     </>
   )
+}
+
+export async function getStaticProps() {
+  const sanityClient = getClient()
+  const previews: [Article] = await sanityClient.fetch(getAllPreviewsQuery)
+
+  const previewProps: ArticlePreviewProps[] = previews.map((preview) => {
+    const imageBuilder = imageUrlBuilder(sanityClient)
+
+    return {
+      slug: preview.slug,
+      title: preview.title,
+      summary: preview.summary,
+      publishedAt: preview.publishedAt,
+      readingDurationMinutes: preview.readingDuration,
+      imageUrl: imageBuilder
+        .image(preview.mainImage)
+        .width(500)
+        .height(500)
+        .url(),
+      displaySize: 'Small',
+    }
+  })
+
+  return {
+    props: {
+      previewsdata: previewProps,
+    },
+  }
 }

@@ -1,11 +1,15 @@
 import { format } from 'date-fns'
+import { Article } from 'schema'
 
-export default function ArticleDate({ date }: { date: string }) {
+export default function ArticleDate({
+  date,
+}: {
+  date: Article['publishedAt']
+}) {
+  console.log(date)
+
   const dateObject = new Date(date)
+  console.log(dateObject)
 
-  return (
-    <time dateTime={dateObject.toISOString()}>
-      {format(dateObject, 'LLLL d, yyyy')}
-    </time>
-  )
+  return <time dateTime={date}>{format(dateObject, 'LLLL d, yyyy')}</time>
 }
