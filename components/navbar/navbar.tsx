@@ -21,7 +21,7 @@ export default function Navbar() {
         label="Blog"
         href="/"
         icon={NavbarIcon.Blog}
-        isActive={router.pathname == '/'}
+        isActive={router.pathname == '/' || router.pathname.includes('/blog/')}
       />
       <NavbarButton
         label="Activity"
