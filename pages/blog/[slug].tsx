@@ -1,35 +1,32 @@
 import { getClient, usePreviewSubscription } from '@lib/sanity'
-import { GetStaticProps, InferGetStaticPropsType } from 'next'
 import { groq } from 'next-sanity'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
 import ReactMarkdown from 'react-markdown'
 import ArticleDate from '../../components/blog/article/article-date'
 import { ArticleProps } from '../../components/blog/article/article.model'
-import { GetStaticPaths } from 'next'
-
 // import utilStyles from '../../styles/utils.module.css'
 
-export const getStaticProps: GetStaticProps = async (params) => {
+export async function getStaticProps({ params, preview = false }) {
   const query = groq`
-        *[_type == "post" && slug.current == "${params.params.slug}"][0]
+        *[_type == "post" && slug.current == "${params.slug}"][0]
     `
-  const post = await getClient(false).fetch(query)
+  const post = await getClient(preview).fetch(query)
 
   return {
     props: {
       postdata: post,
-      preview: false,
+      preview,
     },
     revalidate: 10,
   }
 }
 
-export const getStaticPaths: GetStaticPaths = async () => {
+export async function getStaticPaths({ preview = false }) {
   const query = groq`
         *[_type == "post"] { slug }
     `
-  const posts = await getClient(false).fetch(query)
+  const posts = await getClient(preview).fetch(query)
 
   const slugs = posts.map((post) => {
     return {
@@ -45,9 +42,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
   }
 }
 
-export default function Article({
-  props,
-}: InferGetStaticPropsType<typeof getStaticProps>) {
+export default function Article(props) {
   const { postdata, preview } = props
 
   // Todo: What is preview used for?
