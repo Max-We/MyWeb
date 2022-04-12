@@ -3,6 +3,7 @@ import { BlogpostPreviewProps } from 'components/blog/preview/blogpost-preview.m
 import { groq } from 'next-sanity'
 import { Post } from 'schema'
 import BlogpostPreview from '../components/blog/preview/blogpost-preview'
+import imageUrlBuilder from '@sanity/image-url'
 
 // Todo: Add pagination if more than 20 posts
 const getAllPreviewsQuery = groq`
@@ -11,6 +12,7 @@ const getAllPreviewsQuery = groq`
         title,
         summary,
         publishedAt,
+        mainImage,
         readingDuration
       }
   `
@@ -36,6 +38,7 @@ export default function Home({
           summary={previewdata.summary}
           publishedAt={previewdata.publishedAt}
           readingDurationMinutes={previewdata.readingDurationMinutes}
+          imageUrl={previewdata.imageUrl}
           displaySize={'Small'}
         />
       ))}
@@ -44,10 +47,11 @@ export default function Home({
 }
 
 export async function getStaticProps() {
-  const previews: [Post] = await getClient().fetch(getAllPreviewsQuery)
+  const sanityClient = getClient()
+  const previews: [Post] = await sanityClient.fetch(getAllPreviewsQuery)
 
   const previewProps: BlogpostPreviewProps[] = previews.map((preview) => {
-    const imageUrl = ''
+    const imageBuilder = imageUrlBuilder(sanityClient)
 
     return {
       slug: preview.slug,
@@ -55,7 +59,7 @@ export async function getStaticProps() {
       summary: preview.summary,
       publishedAt: preview.publishedAt,
       readingDurationMinutes: preview.readingDuration,
-      imageUrl: imageUrl,
+      imageUrl: imageBuilder.image(preview.mainImage).url(),
       displaySize: 'Small',
     }
   })

@@ -1,10 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import ArticleDate from '../article/article-date'
-import {
-  BlogpostPreviewProps,
-  BlogpostPreviewSize,
-} from './blogpost-preview.model'
+import { BlogpostPreviewProps } from './blogpost-preview.model'
 
 export default function BlogpostPreview(props: BlogpostPreviewProps) {
   switch (props.displaySize) {
@@ -25,7 +22,7 @@ export default function BlogpostPreview(props: BlogpostPreviewProps) {
                 </div>
               </div>
               <Image
-                src="/placeholder.png"
+                src={props.imageUrl}
                 width={200}
                 height={200}
                 layout="intrinsic"
