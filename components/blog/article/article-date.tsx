@@ -1,7 +1,11 @@
 import { format } from 'date-fns'
 
-export default function ArticleDate({ date }: { date: Date }) {
+export default function ArticleDate({ date }: { date: string }) {
+  const dateObject = new Date(date)
+
   return (
-    <time dateTime={date.toISOString()}>{format(date, 'LLLL d, yyyy')}</time>
+    <time dateTime={dateObject.toISOString()}>
+      {format(dateObject, 'LLLL d, yyyy')}
+    </time>
   )
 }

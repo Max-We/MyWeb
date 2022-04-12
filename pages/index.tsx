@@ -14,7 +14,7 @@ export default function Home() {
         id={'0'}
         title="Lorem ipsum dolor sit amet, consetetur sadipscing"
         summary="Lorem ipsum dolor sit amet, consetetur sadipscing elit, dolor sit amet."
-        createDate={new Date()}
+        createDate={new Date().toISOString()}
         readingDurationMinutes={2}
         displaySize={'Small'}
       ></BlogpostPreview>

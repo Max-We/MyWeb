@@ -7,6 +7,8 @@ export default {
       name: 'title',
       title: 'Title',
       type: 'string',
+      codegen: { required: true },
+      validation: (Rule) => Rule.required(),
     },
     {
       name: 'slug',
@@ -16,6 +18,8 @@ export default {
         source: 'title',
         maxLength: 96,
       },
+      codegen: { required: true },
+      validation: (Rule) => Rule.required(),
     },
     {
       name: 'mainImage',
@@ -24,22 +28,30 @@ export default {
       options: {
         hotspot: true,
       },
+      codegen: { required: true },
+      validation: (Rule) => Rule.required(),
     },
     {
       name: 'categories',
       title: 'Categories',
       type: 'array',
       of: [{ type: 'reference', to: { type: 'category' } }],
+      codegen: { required: true },
+      validation: (Rule) => Rule.required(),
     },
     {
       name: 'publishedAt',
       title: 'Published at',
       type: 'datetime',
+      codegen: { required: true },
+      validation: (Rule) => Rule.required(),
     },
     {
       name: 'body',
       title: 'Body',
       type: 'markdown',
+      codegen: { required: true },
+      validation: (Rule) => Rule.required(),
     },
   ],
 
