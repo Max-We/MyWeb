@@ -11,5 +11,9 @@ export default function ArticleDate({
   const dateObject = new Date(date)
   console.log(dateObject)
 
-  return <time dateTime={date}>{format(dateObject, 'LLLL d, yyyy')}</time>
+  return (
+    <time dateTime={date} className="whitespace-nowrap">
+      {format(dateObject, 'LLLL d, yyyy')}
+    </time>
+  )
 }
