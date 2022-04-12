@@ -3,26 +3,26 @@ import ArticleDate from 'components/blog/article/article-date'
 import { groq } from 'next-sanity'
 import Head from 'next/head'
 import ReactMarkdown from 'react-markdown'
-import { Post } from 'schema'
+import { Article } from 'schema'
 import imageUrlBuilder from '@sanity/image-url'
 import Image from 'next/image'
 
 const getAllSlugsQuery = groq`
-      *[_type == "post"] { slug }
+      *[_type == "article"] { slug }
   `
 
 const getPostQuery = groq`
-      *[_type == "post" && slug.current == $slug][0]
+      *[_type == "article" && slug.current == $slug][0]
   `
 
 const imageWidth = 1600
 const imageHeight = 900
 
-export default function Article({
+export default function ArticlePage({
   postdata,
   imageUrl,
 }: {
-  postdata: Post
+  postdata: Article
   imageUrl: string
 }) {
   return (
@@ -31,11 +31,13 @@ export default function Article({
         <title>{postdata.title}</title>
       </Head>
       <article>
-        <h1 className="mb-6 text-5xl">{postdata.title}</h1>
-        <div className="mb-2 text-neutral-500">
+        <h1 className="mb-2 text-center text-5xl">{postdata.title}</h1>
+        <div className="text-center text-neutral-500">
           <ArticleDate date={postdata.publishedAt} />
         </div>
-        <Image src={imageUrl} width={imageWidth} height={imageHeight} />
+        <div className="my-8">
+          <Image src={imageUrl} width={imageWidth} height={imageHeight} />
+        </div>
         <div className="prose">
           <ReactMarkdown>{postdata.body}</ReactMarkdown>
         </div>
@@ -45,7 +47,7 @@ export default function Article({
 }
 
 export async function getStaticPaths() {
-  const posts: [{ slug: Post['slug'] }] = await getClient().fetch(
+  const posts: [{ slug: Article['slug'] }] = await getClient().fetch(
     getAllSlugsQuery
   )
 
@@ -66,10 +68,10 @@ export async function getStaticPaths() {
 export async function getStaticProps({
   params,
 }: {
-  params: { slug: Post['slug'] }
+  params: { slug: Article['slug'] }
 }) {
   const client = getClient()
-  const post: Post = await client.fetch(getPostQuery, {
+  const post: Article = await client.fetch(getPostQuery, {
     slug: params.slug,
   })
   const imageBuilder = imageUrlBuilder(client)

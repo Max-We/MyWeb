@@ -37,12 +37,12 @@ export type {
 };
 
 /**
- * Post
+ * Article
  *
  *
  */
-export interface Post extends SanityDocument {
-  _type: "post";
+export interface Article extends SanityDocument {
+  _type: "article";
 
   /**
    * Title — `string`
@@ -129,7 +129,7 @@ export interface Category extends SanityDocument {
   description?: string;
 }
 
-export type Documents = Post | Category;
+export type Documents = Article | Category;
 
 /**
  * This interface is a stub. It was referenced in your sanity schema but

@@ -1,7 +1,11 @@
 import { format } from 'date-fns'
-import { Post } from 'schema'
+import { Article } from 'schema'
 
-export default function ArticleDate({ date }: { date: Post['publishedAt'] }) {
+export default function ArticleDate({
+  date,
+}: {
+  date: Article['publishedAt']
+}) {
   console.log(date)
 
   const dateObject = new Date(date)

@@ -1,6 +1,6 @@
 export default {
-  name: 'post',
-  title: 'Post',
+  name: 'article',
+  title: 'Article',
   type: 'document',
   fields: [
     {
@@ -55,7 +55,7 @@ export default {
     },
     {
       name: 'readingDuration',
-      title: 'Reading duration',
+      title: 'Reading duration (minutes)',
       type: 'number',
       codegen: { required: true },
       validation: (Rule) => Rule.required().min(1).max(60),

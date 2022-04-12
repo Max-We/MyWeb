@@ -1,13 +1,13 @@
 import { getClient } from '@lib/sanity'
-import { BlogpostPreviewProps } from 'components/blog/preview/blogpost-preview.model'
+import { ArticlePreviewProps } from 'components/blog/preview/article-preview.model'
 import { groq } from 'next-sanity'
-import { Post } from 'schema'
-import BlogpostPreview from '../components/blog/preview/blogpost-preview'
+import { Article } from 'schema'
+import ArticlePreview from '../components/blog/preview/article-preview'
 import imageUrlBuilder from '@sanity/image-url'
 
 // Todo: Add pagination if more than 20 posts
 const getAllPreviewsQuery = groq`
-      *[_type == "post"] | order(publishedAt desc)[0...20] {
+      *[_type == "article"] | order(publishedAt desc)[0...20] {
         slug,
         title,
         summary,
@@ -20,19 +20,12 @@ const getAllPreviewsQuery = groq`
 export default function Home({
   previewsdata,
 }: {
-  previewsdata: BlogpostPreviewProps[]
+  previewsdata: ArticlePreviewProps[]
 }) {
   return (
     <>
-      <p>
-        On my blog I share my thoughts on various topics like technology,
-        science and society.
-      </p>
-
-      <br />
-
       {previewsdata.map((previewdata) => (
-        <BlogpostPreview
+        <ArticlePreview
           slug={previewdata.slug}
           title={previewdata.title}
           summary={previewdata.summary}
@@ -48,9 +41,9 @@ export default function Home({
 
 export async function getStaticProps() {
   const sanityClient = getClient()
-  const previews: [Post] = await sanityClient.fetch(getAllPreviewsQuery)
+  const previews: [Article] = await sanityClient.fetch(getAllPreviewsQuery)
 
-  const previewProps: BlogpostPreviewProps[] = previews.map((preview) => {
+  const previewProps: ArticlePreviewProps[] = previews.map((preview) => {
     const imageBuilder = imageUrlBuilder(sanityClient)
 
     return {

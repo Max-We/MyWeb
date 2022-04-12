@@ -1,9 +1,9 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import ArticleDate from '../article/article-date'
-import { BlogpostPreviewProps } from './blogpost-preview.model'
+import { ArticlePreviewProps } from './article-preview.model'
 
-export default function BlogpostPreview(props: BlogpostPreviewProps) {
+export default function ArticlePreview(props: ArticlePreviewProps) {
   switch (props.displaySize) {
     case 'Small':
       return (
@@ -23,8 +23,8 @@ export default function BlogpostPreview(props: BlogpostPreviewProps) {
               </div>
               <Image
                 src={props.imageUrl}
-                width={500}
-                height={500}
+                width={200}
+                height={200}
                 layout="intrinsic"
                 objectFit="cover"
                 className="rounded-r-xl"
