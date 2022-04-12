@@ -6,43 +6,13 @@ import ReactMarkdown from 'react-markdown'
 import { Post } from 'schema'
 // import utilStyles from '../../styles/utils.module.css'
 
-export async function getStaticProps({
-  params,
-}: {
-  params: { slug: Post['slug'] }
-}) {
-  const query = groq`
-        *[_type == "post" && slug.current == "${params.slug}"][0]
-    `
-  const post: Post = await getClient().fetch(query)
+const getAllSlugsQuery = groq`
+      *[_type == "post"] { slug }
+  `
 
-  return {
-    props: {
-      postdata: post,
-    },
-    revalidate: 10,
-  }
-}
-
-export async function getStaticPaths() {
-  const query = groq`
-        *[_type == "post"] { slug }
-    `
-  const posts: [{ slug: Post['slug'] }] = await getClient().fetch(query)
-
-  const slugs = posts.map((post) => {
-    return {
-      params: {
-        slug: post.slug.current,
-      },
-    }
-  })
-
-  return {
-    paths: slugs,
-    fallback: false,
-  }
-}
+const getPostQuery = groq`
+      *[_type == "post" && slug.current == $slug][0]
+  `
 
 export default function Article({ postdata }: { postdata: Post }) {
   return (
@@ -62,4 +32,39 @@ export default function Article({ postdata }: { postdata: Post }) {
       </article>
     </>
   )
+}
+
+export async function getStaticPaths() {
+  const posts: [{ slug: Post['slug'] }] = await getClient().fetch(
+    getAllSlugsQuery
+  )
+
+  const slugs = posts.map((post) => {
+    return {
+      params: {
+        slug: post.slug.current,
+      },
+    }
+  })
+
+  return {
+    paths: slugs,
+    fallback: false,
+  }
+}
+
+export async function getStaticProps({
+  params,
+}: {
+  params: { slug: Post['slug'] }
+}) {
+  const post: Post = await getClient().fetch(getPostQuery, {
+    slug: params.slug,
+  })
+
+  return {
+    props: {
+      postdata: post,
+    },
+  }
 }
