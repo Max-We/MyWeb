@@ -1,8 +1,8 @@
 {
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "prebuild": "echo 'Building Sanity to public/sanity-studio' && cd sanity-studio && yarn && npx @sanity/cli build ../public/sanity-studio -y && echo 'Done'",
+    "dev": "npx sanity-codegen && next dev",
+    "prebuild": "npx sanity-codegen && echo 'Building Sanity to public/sanity-studio' && cd sanity-studio && yarn && npx @sanity/cli build ../public/sanity-studio -y && echo 'Done'",
     "build": "next build",
     "start": "next start",
     "sanity": "cd sanity-studio && sanity start",

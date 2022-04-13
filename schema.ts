@@ -92,7 +92,7 @@ export interface Article extends SanityDocument {
   publishedAt: string;
 
   /**
-   * Reading duration — `number`
+   * Reading duration (minutes) — `number`
    *
    *
    */
