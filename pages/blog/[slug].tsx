@@ -6,6 +6,7 @@ import ReactMarkdown from 'react-markdown'
 import { Article } from 'schema'
 import imageUrlBuilder from '@sanity/image-url'
 import Image from 'next/image'
+import TwitterContactForm from 'components/social/twitter/twitter-contact-form'
 
 const getAllSlugsQuery = groq`
       *[_type == "article"] { slug }
@@ -26,23 +27,34 @@ export default function ArticlePage({
   imageUrl: string
 }) {
   return (
-    <>
-      <Head>
-        <title>{postdata.title}</title>
-      </Head>
-      <article>
-        <h1 className="mb-2 text-center text-5xl">{postdata.title}</h1>
-        <div className="text-center text-neutral-500">
-          <ArticleDate date={postdata.publishedAt} />
-        </div>
-        <div className="my-8">
-          <Image src={imageUrl} width={imageWidth} height={imageHeight} />
-        </div>
-        <div className="prose">
-          <ReactMarkdown>{postdata.body}</ReactMarkdown>
-        </div>
-      </article>
-    </>
+    <div className="flex justify-center text-justify">
+      <div className="max-w-prose">
+        <Head>
+          <title>{postdata.title}</title>
+        </Head>
+        <article className="mb-12">
+          <h1 className="mb-2 text-center text-5xl">{postdata.title}</h1>
+          <div className="text-center text-neutral-500">
+            <ArticleDate date={postdata.publishedAt} />
+          </div>
+          <div className="my-8 block">
+            <Image
+              src={imageUrl}
+              width={imageWidth}
+              height={imageHeight}
+              layout="intrinsic"
+            />
+          </div>
+          <div className="flex justify-center">
+            <div className="prose">
+              <ReactMarkdown>{postdata.body}</ReactMarkdown>
+            </div>
+          </div>
+        </article>
+
+        <TwitterContactForm />
+      </div>
+    </div>
   )
 }
 
