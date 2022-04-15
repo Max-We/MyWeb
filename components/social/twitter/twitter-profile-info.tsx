@@ -5,13 +5,13 @@ export default function TwitterProfileInfo() {
   return (
     <Link href="https://twitter.com/MaxWeichart">
       <a>
-        <div className="mr-12 flex gap-5">
+        <div className="flex gap-3 md:mr-12">
           <div className="h-12 w-12">
             <Image
               src="/profile-picture-memoji.jpg"
               width={50}
               height={50}
-              className="mr-2 rounded-full border-solid"
+              className="rounded-full border-solid"
             />
           </div>
           <div className="flex flex-col justify-start">
