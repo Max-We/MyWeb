@@ -31,13 +31,21 @@ export default function ArticlePage({
     <>
       <Head>
         <title>{postdata.title}</title>
-        <meta property="og:title" content={postdata.title} />
-        <meta property="og:description" content={postdata.summary} />
-        <meta name="description" content={postdata.summary} />
-        <meta property="og:image" content={imageUrl} />
-        <meta property="og:site_name" content="MyBlog by Maximilian Weichart" />
-        <meta property="og:type" content="article" />
-        <meta property="og:locale" content="en_US" />
+        <meta property="og:title" content={postdata.title} key="og:title" />
+        <meta
+          property="og:description"
+          content={postdata.summary}
+          key="og:description"
+        />
+        <meta name="description" content={postdata.summary} key="description" />
+        <meta property="og:image" content={imageUrl} key="og:image" />
+        <meta
+          property="og:site_name"
+          content="MyBlog by Maximilian Weichart"
+          key="og:sitename"
+        />
+        <meta property="og:type" content="article" key="og:type" />
+        <meta property="og:locale" content="en_US" key="og:locale" />
       </Head>
 
       <div className="flex justify-center text-justify">
