@@ -15,7 +15,7 @@ export default function TwitterDmForm() {
         chat.
       </p>
 
-      <div className="flex justify-around md:justify-center">
+      <div className="flex justify-around md:justify-center md:gap-12">
         <TwitterProfileInfo />
         <TwitterDmButton />
       </div>
