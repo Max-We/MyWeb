@@ -6,6 +6,7 @@ import ReactMarkdown from 'react-markdown'
 import { Article } from 'schema'
 import imageUrlBuilder from '@sanity/image-url'
 import Image from 'next/image'
+import TwitterDmForm from 'components/social/twitter/twitter-dm-form'
 
 const getAllSlugsQuery = groq`
       *[_type == "article"] { slug }
@@ -42,6 +43,10 @@ export default function ArticlePage({
           <ReactMarkdown>{postdata.body}</ReactMarkdown>
         </div>
       </article>
+
+      <hr className="my-10" />
+
+      <TwitterDmForm />
     </>
   )
 }
