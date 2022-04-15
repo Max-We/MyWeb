@@ -30,6 +30,7 @@ export default function ArticlePreview(props: ArticlePreviewProps) {
                 layout="intrinsic"
                 objectFit="cover"
                 className="rounded-r-xl"
+                draggable="false"
               />
             </div>
           </a>

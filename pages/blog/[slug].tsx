@@ -27,41 +27,46 @@ export default function ArticlePage({
   postdata: Article
   imageUrl: string
 }) {
-  const router = useRouter()
-
   return (
-    <div className="flex justify-center text-justify">
-      <div className="max-w-prose">
-        <Head>
-          <title>{postdata.title}</title>
-          <meta name="og:title" content={postdata.title} />
-          <meta name="og:description" content={postdata.summary} />
-          <meta name="description" content={postdata.summary} />
-          <meta name="og:image" content={imageUrl} />
-        </Head>
-        <article className="mb-12">
-          <h1 className="mb-2 text-center text-5xl">{postdata.title}</h1>
-          <div className="text-center text-neutral-500">
-            <ArticleDate date={postdata.publishedAt} />
-          </div>
-          <div className="my-8 block">
-            <Image
-              src={imageUrl}
-              width={imageWidth}
-              height={imageHeight}
-              layout="intrinsic"
-            />
-          </div>
-          <div className="flex justify-center">
-            <div className="prose">
-              <ReactMarkdown>{postdata.body}</ReactMarkdown>
-            </div>
-          </div>
-        </article>
+    <>
+      <Head>
+        <title>{postdata.title}</title>
+        <meta property="og:title" content={postdata.title} />
+        <meta property="og:description" content={postdata.summary} />
+        <meta name="description" content={postdata.summary} />
+        <meta property="og:image" content={imageUrl} />
+        <meta property="og:site_name" content="MyBlog by Maximilian Weichart" />
+        <meta property="og:type" content="article" />
+        <meta property="og:locale" content="en_US" />
+      </Head>
 
-        <TwitterContactForm />
+      <div className="flex justify-center text-justify">
+        <div className="max-w-prose">
+          <article className="mb-12">
+            <h1 className="mb-2 text-center text-5xl">{postdata.title}</h1>
+            <div className="text-center text-neutral-500">
+              <ArticleDate date={postdata.publishedAt} />
+            </div>
+            <div className="my-8 block">
+              <Image
+                src={imageUrl}
+                width={imageWidth}
+                height={imageHeight}
+                layout="intrinsic"
+                draggable="false"
+              />
+            </div>
+            <div className="flex justify-center">
+              <div className="prose">
+                <ReactMarkdown>{postdata.body}</ReactMarkdown>
+              </div>
+            </div>
+          </article>
+
+          <TwitterContactForm />
+        </div>
       </div>
-    </div>
+    </>
   )
 }
 

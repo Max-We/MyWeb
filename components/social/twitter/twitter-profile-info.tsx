@@ -4,7 +4,7 @@ import Image from 'next/image'
 export default function TwitterProfileInfo() {
   return (
     <Link href="https://twitter.com/MaxWeichart">
-      <a>
+      <a target="_blank">
         <div className="flex gap-3">
           <div className="h-12 w-12">
             <Image
@@ -12,6 +12,7 @@ export default function TwitterProfileInfo() {
               width={50}
               height={50}
               className="rounded-full border-solid"
+              draggable="false"
             />
           </div>
           <div className="flex flex-col justify-start">
