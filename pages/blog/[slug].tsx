@@ -7,6 +7,7 @@ import { Article } from 'schema'
 import imageUrlBuilder from '@sanity/image-url'
 import Image from 'next/image'
 import TwitterContactForm from 'components/social/twitter/twitter-contact-form'
+import { useRouter } from 'next/router'
 
 const getAllSlugsQuery = groq`
       *[_type == "article"] { slug }
@@ -26,11 +27,17 @@ export default function ArticlePage({
   postdata: Article
   imageUrl: string
 }) {
+  const router = useRouter()
+
   return (
     <div className="flex justify-center text-justify">
       <div className="max-w-prose">
         <Head>
           <title>{postdata.title}</title>
+          <meta name="og:title" content={postdata.title} />
+          <meta name="og:description" content={postdata.summary} />
+          <meta name="description" content={postdata.summary} />
+          <meta name="og:image" content={imageUrl} />
         </Head>
         <article className="mb-12">
           <h1 className="mb-2 text-center text-5xl">{postdata.title}</h1>
