@@ -29,9 +29,7 @@ export default function ArticlePage({
 }) {
   return (
     <>
-      <Head>
-        <ArticleMeta postdata={postdata} imageUrl={imageUrl}></ArticleMeta>
-      </Head>
+      <ArticleMeta postdata={postdata} imageUrl={imageUrl} />
 
       <div className="flex justify-center text-justify">
         <div className="max-w-prose">

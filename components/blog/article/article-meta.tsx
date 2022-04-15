@@ -1,3 +1,4 @@
+import Head from 'next/head'
 import { Article } from 'schema'
 
 export default function ArticleMeta({
@@ -11,7 +12,7 @@ export default function ArticleMeta({
   const siteName = `MyBlog by ${creator}`
 
   return (
-    <>
+    <Head>
       {/* General */}
       <title>{postdata.title}</title>
       <meta name="description" content={postdata.summary} key="description" />
@@ -35,6 +36,6 @@ export default function ArticleMeta({
       <meta name="twitter:image" content={imageUrl} />
       <meta name="twitter:creator" content={creator} />
       <meta name="twitter:site" content={siteName} />
-    </>
+    </Head>
   )
 }
