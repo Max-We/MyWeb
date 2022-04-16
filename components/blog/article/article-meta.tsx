@@ -26,6 +26,11 @@ export default function ArticleMeta({
         key="og:description"
       />
       <meta property="og:image" content={imageUrl} key="og:image" />
+      <meta
+        property="og:image:secure_url"
+        content={imageUrl}
+        key="og:image:secure_url"
+      />
       <meta property="og:site_name" content={siteName} key="og:sitename" />
       <meta property="og:type" content="article" key="og:type" />
       <meta property="og:locale" content="en_US" key="og:locale" />
@@ -42,15 +47,7 @@ export default function ArticleMeta({
         content={postdata.summary}
         key="twitter:description"
       />
-      <meta
-        name="twitter:image"
-        content="https://blog.1password.com/posts/2022/developers-deserve-great-ux/header.png"
-      />
-      {/* <meta
-        name="twitter:image"
-        content="http://cdn.sanity.io/images/vpi5l1xp/production/cd67bc85b4c3e584e86bb1cd03a1cca220986487-3826x2551.jpg"
-        key="twitter:image"
-      /> */}
+      {/* <meta name="twitter:image" content={imageUrl} key="twitter:image" /> */}
       <meta name="twitter:creator" content={creator} key="twitter:creator" />
       <meta name="twitter:site" content={siteName} key="twitter:site" />
     </Head>
