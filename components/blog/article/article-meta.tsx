@@ -26,11 +26,6 @@ export default function ArticleMeta({
         key="og:description"
       />
       <meta property="og:image" content={imageUrl} key="og:image" />
-      <meta
-        property="og:image:secure_url"
-        content={imageUrl}
-        key="og:image:secure_url"
-      />
       <meta property="og:site_name" content={siteName} key="og:sitename" />
       <meta property="og:type" content="article" key="og:type" />
       <meta property="og:locale" content="en_US" key="og:locale" />
@@ -41,13 +36,6 @@ export default function ArticleMeta({
         content="summary_large_image"
         key="twitter:card"
       />
-      <meta name="twitter:title" content={postdata.title} key="twitter:title" />
-      <meta
-        name="twitter:description"
-        content={postdata.summary}
-        key="twitter:description"
-      />
-      <meta name="twitter:image" content={imageUrl} key="twitter:image" />
       <meta name="twitter:creator" content={creator} key="twitter:creator" />
       <meta name="twitter:site" content={siteName} key="twitter:site" />
     </Head>
