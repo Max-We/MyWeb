@@ -31,27 +31,23 @@ export default function ArticleMeta({
 
       {/* Twitter */}
       <meta
-        property="twitter:card"
+        name="twitter:card"
         content="summary_large_image"
         key="twitter:card"
       />
+      <meta name="twitter:title" content={postdata.title} key="twitter:title" />
       <meta
-        property="twitter:title"
-        content={postdata.title}
-        key="twitter:title"
-      />
-      <meta
-        property="twitter:description"
+        name="twitter:description"
         content={postdata.summary}
         key="twitter:description"
       />
-      <meta property="twitter:image" content={imageUrl} key="twitter:image" />
       <meta
-        property="twitter:creator"
-        content={creator}
-        key="twitter:creator"
+        name="twitter:image"
+        content="http://graphics8.nytimes.com/images/2011/12/08/technology/bits-newtwitter/bits-newtwitter-tmagArticle.jpg"
+        key="twitter:image"
       />
-      <meta property="twitter:site" content={siteName} key="twitter:site" />
+      <meta name="twitter:creator" content={creator} key="twitter:creator" />
+      <meta name="twitter:site" content={siteName} key="twitter:site" />
     </Head>
   )
 }
