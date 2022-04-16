@@ -47,7 +47,7 @@ export default function ArticleMeta({
         content={postdata.summary}
         key="twitter:description"
       />
-      {/* <meta name="twitter:image" content={imageUrl} key="twitter:image" /> */}
+      <meta name="twitter:image" content={imageUrl} key="twitter:image" />
       <meta name="twitter:creator" content={creator} key="twitter:creator" />
       <meta name="twitter:site" content={siteName} key="twitter:site" />
     </Head>
