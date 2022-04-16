@@ -33,6 +33,7 @@ export default function Home({
           readingDurationMinutes={previewdata.readingDurationMinutes}
           imageUrl={previewdata.imageUrl}
           displaySize={'Small'}
+          key={previewdata.slug.current}
         />
       ))}
     </>
