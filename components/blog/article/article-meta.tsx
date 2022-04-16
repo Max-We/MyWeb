@@ -44,9 +44,13 @@ export default function ArticleMeta({
       />
       <meta
         name="twitter:image"
-        content="https://cdn.sanity.io/images/vpi5l1xp/production/cd67bc85b4c3e584e86bb1cd03a1cca220986487-3826x2551.jpg"
-        key="twitter:image"
+        content="https://blog.1password.com/posts/2022/developers-deserve-great-ux/header.png"
       />
+      {/* <meta
+        name="twitter:image"
+        content="http://cdn.sanity.io/images/vpi5l1xp/production/cd67bc85b4c3e584e86bb1cd03a1cca220986487-3826x2551.jpg"
+        key="twitter:image"
+      /> */}
       <meta name="twitter:creator" content={creator} key="twitter:creator" />
       <meta name="twitter:site" content={siteName} key="twitter:site" />
     </Head>
