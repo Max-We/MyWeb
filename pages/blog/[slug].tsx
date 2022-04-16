@@ -7,6 +7,7 @@ import { Article } from 'schema'
 import imageUrlBuilder from '@sanity/image-url'
 import Image from 'next/image'
 import TwitterContactForm from 'components/social/twitter/twitter-contact-form'
+import ArticleMeta from 'components/blog/article/article-meta'
 
 const getAllSlugsQuery = groq`
       *[_type == "article"] { slug }
@@ -27,34 +28,36 @@ export default function ArticlePage({
   imageUrl: string
 }) {
   return (
-    <div className="flex justify-center text-justify">
-      <div className="max-w-prose">
-        <Head>
-          <title>{postdata.title}</title>
-        </Head>
-        <article className="mb-12">
-          <h1 className="mb-2 text-center text-5xl">{postdata.title}</h1>
-          <div className="text-center text-neutral-500">
-            <ArticleDate date={postdata.publishedAt} />
-          </div>
-          <div className="my-8 block">
-            <Image
-              src={imageUrl}
-              width={imageWidth}
-              height={imageHeight}
-              layout="intrinsic"
-            />
-          </div>
-          <div className="flex justify-center">
-            <div className="prose">
-              <ReactMarkdown>{postdata.body}</ReactMarkdown>
-            </div>
-          </div>
-        </article>
+    <>
+      <ArticleMeta postdata={postdata} imageUrl={imageUrl} />
 
-        <TwitterContactForm />
+      <div className="flex justify-center text-justify">
+        <div className="max-w-prose">
+          <article className="mb-12">
+            <h1 className="mb-2 text-center text-5xl">{postdata.title}</h1>
+            <div className="text-center text-neutral-500">
+              <ArticleDate date={postdata.publishedAt} />
+            </div>
+            <div className="my-8 block">
+              <Image
+                src={imageUrl}
+                width={imageWidth}
+                height={imageHeight}
+                layout="intrinsic"
+                draggable="false"
+              />
+            </div>
+            <div className="flex justify-center">
+              <div className="prose">
+                <ReactMarkdown>{postdata.body}</ReactMarkdown>
+              </div>
+            </div>
+          </article>
+
+          <TwitterContactForm />
+        </div>
       </div>
-    </div>
+    </>
   )
 }
 

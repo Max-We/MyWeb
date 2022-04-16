@@ -11,6 +11,7 @@ export default function AboutMe() {
           width={200}
           height={200}
           className="rounded-full border-solid"
+          draggable="false"
         />
       </span>
 
