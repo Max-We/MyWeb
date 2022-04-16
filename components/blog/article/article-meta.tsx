@@ -10,6 +10,7 @@ export default function ArticleMeta({
 }) {
   const creator = 'Maximilian Weichart'
   const siteName = `MyBlog by ${creator}`
+  console.log(imageUrl)
 
   return (
     <Head>
@@ -43,7 +44,7 @@ export default function ArticleMeta({
       />
       <meta
         name="twitter:image"
-        content="http://graphics8.nytimes.com/images/2011/12/08/technology/bits-newtwitter/bits-newtwitter-tmagArticle.jpg"
+        content="https://cdn.sanity.io/images/vpi5l1xp/production/cd67bc85b4c3e584e86bb1cd03a1cca220986487-3826x2551.jpg"
         key="twitter:image"
       />
       <meta name="twitter:creator" content={creator} key="twitter:creator" />
