@@ -30,12 +30,28 @@ export default function ArticleMeta({
       <meta property="og:locale" content="en_US" key="og:locale" />
 
       {/* Twitter */}
-      <meta property="twitter:card" content="summary_large_image" />
-      <meta property="twitter:title" content={postdata.title} />
-      <meta property="twitter:description" content={postdata.summary} />
-      <meta property="twitter:image" content={imageUrl} />
-      <meta property="twitter:creator" content={creator} />
-      <meta property="twitter:site" content={siteName} />
+      <meta
+        property="twitter:card"
+        content="summary_large_image"
+        key="twitter:card"
+      />
+      <meta
+        property="twitter:title"
+        content={postdata.title}
+        key="twitter:title"
+      />
+      <meta
+        property="twitter:description"
+        content={postdata.summary}
+        key="twitter:description"
+      />
+      <meta property="twitter:image" content={imageUrl} key="twitter:image" />
+      <meta
+        property="twitter:creator"
+        content={creator}
+        key="twitter:creator"
+      />
+      <meta property="twitter:site" content={siteName} key="twitter:site" />
     </Head>
   )
 }
