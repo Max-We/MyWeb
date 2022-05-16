@@ -5,7 +5,6 @@ import { NavbarIcon, navbarIcons, navbarIconsSolid } from './navbar.model'
 
 export default function Navbar() {
   const router = useRouter()
-  console.log(router.pathname)
 
   return (
     // Todo: z-index above card hover
