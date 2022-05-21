@@ -25,16 +25,7 @@ export default function Home({
   return (
     <>
       {previewsdata.map((previewdata) => (
-        <ArticlePreview
-          slug={previewdata.slug}
-          title={previewdata.title}
-          summary={previewdata.summary}
-          publishedAt={previewdata.publishedAt}
-          readingDurationMinutes={previewdata.readingDurationMinutes}
-          imageUrl={previewdata.imageUrl}
-          displaySize={'Small'}
-          key={previewdata.slug.current}
-        />
+        <ArticlePreview {...previewdata} />
       ))}
     </>
   )
