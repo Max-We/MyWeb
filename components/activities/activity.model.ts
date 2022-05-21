@@ -1,16 +1,16 @@
 import { ArticlePreviewProps } from 'components/blog/preview/article-preview.model'
 import { Tweet } from './tweet.model'
 
-export type ActivityElement = {
+export type Activity = {
   createDate: string
   description: string
 }
 
-export type TweetActivity = ActivityElement & {
+export type TweetActivity = Activity & {
   tweet: Tweet
 }
 
-export type BlogActivity = ActivityElement & {
+export type BlogActivity = Activity & {
   articlePreview: ArticlePreviewProps
 }
 
