@@ -3,6 +3,7 @@ import { Tweet } from './tweet.model'
 import Image from 'next/image'
 
 export default function TweetView(props: Tweet) {
+  // Todo: Highlight @mentions and urls
   return (
     <Link href={`https://twitter.com/twitter/status/${props.id}`}>
       <a>

@@ -25,6 +25,7 @@ export default function Activities({
       if ('tweet' in activity) {
         return (
           <>
+            {/* Todo: Extract to component */}
             <p className="my-2">{activity.description}</p>
             <TweetView {...activity.tweet} />
           </>
@@ -32,6 +33,7 @@ export default function Activities({
       } else if ('articlePreview' in activity) {
         return (
           <>
+            {/* Todo: Extract to component */}
             <p className="my-2">{activity.description}</p>
             <ArticlePreview {...activity.articlePreview} />
           </>
@@ -40,9 +42,11 @@ export default function Activities({
     }
   )
 
+  // Todo: Implement visual verical line
   return <>{activityViews.map((activity) => activity)}</>
 }
 
+// Todo: Extract functions or make more readable
 export async function getStaticProps() {
   const twitterActivities: TweetActivity[] = await getTwitterActivities()
   const blogActivities: BlogActivity[] = await getBlogActivities()
