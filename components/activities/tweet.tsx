@@ -7,7 +7,7 @@ export default function TweetView(props: Tweet) {
   return (
     <Link href={`https://twitter.com/twitter/status/${props.id}`}>
       <a>
-        <div className="h-content mb-7 flex w-full justify-between rounded-xl border p-5 shadow">
+        <div className="h-content flex w-full justify-between rounded-xl border p-5 shadow">
           <span className="flex">
             <span>
               <Image

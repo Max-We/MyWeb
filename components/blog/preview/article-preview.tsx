@@ -9,7 +9,7 @@ export default function ArticlePreview(props: ArticlePreviewProps) {
       return (
         <Link href={`/blog/${props.slug.current}`}>
           <a>
-            <div className="mb-7 flex h-32 w-full justify-between rounded-xl border shadow lg:h-44 ">
+            <div className="flex h-32 w-full justify-between rounded-xl border shadow lg:h-44 ">
               <div className="flex w-5/6 flex-col p-5">
                 <h2 className="text-sm font-bold line-clamp-3 lg:text-xl lg:line-clamp-2">
                   {props.title}

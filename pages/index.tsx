@@ -25,7 +25,9 @@ export default function Home({
   return (
     <>
       {previewsdata.map((previewdata) => (
-        <ArticlePreview {...previewdata} />
+        <span className="mb-7">
+          <ArticlePreview {...previewdata} />
+        </span>
       ))}
     </>
   )
