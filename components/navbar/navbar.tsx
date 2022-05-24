@@ -24,9 +24,9 @@ export default function Navbar() {
       />
       <NavbarButton
         label="Activity"
-        href="/activity"
+        href="/activities"
         icon={NavbarIcon.Activity}
-        isActive={router.pathname.includes('activity')}
+        isActive={router.pathname.includes('activities')}
       />
       <NavbarButton
         label="Projects"
