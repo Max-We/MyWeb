@@ -3,6 +3,9 @@ export default function ActivityTimelineLine({
 }: {
   isStart: boolean
 }) {
+  const strokeColor = '#BBBBBB'
+  const strokeWidth = 2
+
   const startLine = (
     <svg
       width="16"
@@ -11,8 +14,21 @@ export default function ActivityTimelineLine({
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <line x1="8" y1="16" x2="8" y2="26" stroke="#BBBBBB" stroke-width="2" />
-      <circle cx="8" cy="8" r="7" stroke="#A7A7A7" stroke-width="2" />
+      <line
+        x1="8"
+        y1="16"
+        x2="8"
+        y2="36"
+        stroke={strokeColor}
+        stroke-width={strokeWidth}
+      />
+      <circle
+        cx="8"
+        cy="8"
+        r="7"
+        stroke={strokeColor}
+        stroke-width={strokeWidth}
+      />
     </svg>
   )
 
@@ -26,11 +42,11 @@ export default function ActivityTimelineLine({
     >
       <line
         x1="1"
-        y1="-3.53854e-08"
+        y1="0"
         x2="1"
         y2="42"
-        stroke="#BBBBBB"
-        stroke-width="2"
+        stroke={strokeColor}
+        stroke-width={strokeWidth}
       />
     </svg>
   )
