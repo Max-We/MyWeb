@@ -16,7 +16,7 @@ import {
 
 export enum NavbarIcon {
   Blog,
-  Activity,
+  Activities,
   Projects,
   AboutMe,
   Support,
@@ -24,7 +24,7 @@ export enum NavbarIcon {
 
 export const navbarIcons = {
   [NavbarIcon.Blog]: BookOpenIcon,
-  [NavbarIcon.Activity]: LightningBoltIcon,
+  [NavbarIcon.Activities]: LightningBoltIcon,
   [NavbarIcon.Projects]: CodeIcon,
   [NavbarIcon.AboutMe]: UserCircleIcon,
   [NavbarIcon.Support]: HeartIcon,
@@ -32,7 +32,7 @@ export const navbarIcons = {
 
 export const navbarIconsSolid = {
   [NavbarIcon.Blog]: BookOpenIconSolid,
-  [NavbarIcon.Activity]: LightningBoltIconSolid,
+  [NavbarIcon.Activities]: LightningBoltIconSolid,
   [NavbarIcon.Projects]: CodeIconSolid,
   [NavbarIcon.AboutMe]: UserCircleIconSolid,
   [NavbarIcon.Support]: HeartIconSolid,
