@@ -1,44 +1,28 @@
-import TweetView from 'components/activities/tweet'
 import {
   Activity,
   BlogActivity,
   TweetActivity,
 } from 'components/activities/activity.model'
-import ArticlePreview from 'components/blog/preview/article-preview'
 import {
   getBlogActivities,
   getTwitterActivities,
 } from 'queries/activity-queries'
+import ActivityTimelineElement from 'components/activities/activity-timeline-element'
 
 export default function Activities({
   activities,
 }: {
   activities: (TweetActivity | BlogActivity)[]
 }) {
-  const activityViews = activities.map(
-    (activity: TweetActivity | BlogActivity) => {
-      if ('tweet' in activity) {
+  return (
+    <>
+      {activities.map((activity: TweetActivity | BlogActivity, index) => {
         return (
-          <>
-            {/* Todo: Extract to component */}
-            <p className="my-2">{activity.description}</p>
-            <TweetView {...activity.tweet} />
-          </>
+          <ActivityTimelineElement activity={activity} isStart={index == 0} />
         )
-      } else if ('articlePreview' in activity) {
-        return (
-          <>
-            {/* Todo: Extract to component */}
-            <p className="my-2">{activity.description}</p>
-            <ArticlePreview {...activity.articlePreview} />
-          </>
-        )
-      }
-    }
+      })}
+    </>
   )
-
-  // Todo: Implement visual verical line
-  return <>{activityViews.map((activity) => activity)}</>
 }
 
 // Todo: Extract functions or make more readable
