@@ -4,13 +4,13 @@
 
 @layer base {
   body {
-    // # Darkmode
-    // Secondary text: bg-gray-400
-    // Card background: bg-gray-700
-    // Card border: bg-gray-800
+    /* # Darkmode
+    Secondary text: bg-gray-400
+    Card background: bg-gray-700
+    Card border: bg-gray-800
 
-    // # Lightmode
-    // Secondary text: bg-neutral-500
+    # Lightmode
+    Secondary text: bg-neutral-500 */
     @apply dark:bg-gray-900 dark:text-neutral-200;
   }
 }
