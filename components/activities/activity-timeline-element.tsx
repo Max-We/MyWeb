@@ -23,7 +23,9 @@ export default function ActivityTimelineElement({
     <>
       <div className="my-2 ml-5 flex items-center">
         <ActivityTimelineLine isStart={isStart} />
-        <p>{activity.description}</p>
+        <p className="text-gray-500 dark:text-gray-400">
+          {activity.description}
+        </p>
       </div>
       {activityView}
     </>

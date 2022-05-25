@@ -17,7 +17,7 @@ export default function TwitterProfileInfo() {
           </div>
           <div className="flex flex-col justify-start">
             <p className="font-bold">Max Weichart</p>
-            <p className="text-neutral-500">@MaxWeichart</p>
+            <p className="text-neutral-500 dark:text-gray-400">@MaxWeichart</p>
           </div>
         </div>
       </a>
