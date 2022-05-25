@@ -41,10 +41,11 @@ export default function Navbar() {
         isActive={router.pathname.includes('about-me')}
       />
       <NavbarButton
-        label="Buy Me A Coffee"
-        href="/support"
+        label="Support"
+        href="https://www.buymeacoffee.com/mw00"
         icon={NavbarIcon.Support}
         isActive={router.pathname.includes('support')}
+        newTab={true}
       />
     </div>
   )
