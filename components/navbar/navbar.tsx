@@ -45,6 +45,7 @@ export default function Navbar() {
         href="https://www.buymeacoffee.com/mw00"
         icon={NavbarIcon.Support}
         isActive={router.pathname.includes('support')}
+        newTab={true}
       />
     </div>
   )
