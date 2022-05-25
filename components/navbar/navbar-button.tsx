@@ -21,7 +21,7 @@ export default function NavbarButton({
       <a target={newTab ? '_blank' : '_self'}>
         <button
           className="flex h-14 items-center justify-center
-        xl:justify-start xl:rounded-full xl:px-4 xl:align-middle xl:hover:bg-zinc-200"
+        xl:justify-start xl:rounded-full xl:px-4 xl:align-middle xl:hover:bg-zinc-200 xl:hover:dark:bg-gray-800"
         >
           <HeroIcon className="h-8 w-8 xl:mr-2" />
           <span

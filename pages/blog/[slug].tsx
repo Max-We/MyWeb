@@ -35,7 +35,7 @@ export default function ArticlePage({
         <div className="max-w-prose">
           <article className="mb-12">
             <h1 className="mb-2 text-center text-5xl">{postdata.title}</h1>
-            <div className="text-center text-neutral-500">
+            <div className="text-center text-neutral-500 dark:text-gray-400">
               <ArticleDate date={postdata.publishedAt} />
             </div>
             <div className="my-8 block">
@@ -48,7 +48,7 @@ export default function ArticlePage({
               />
             </div>
             <div className="flex justify-center">
-              <div className="prose">
+              <div className="prose dark:prose-invert">
                 <ReactMarkdown>{postdata.body}</ReactMarkdown>
               </div>
             </div>
