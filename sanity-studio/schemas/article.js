@@ -2,6 +2,9 @@ export default {
   name: 'article',
   title: 'Article',
   type: 'document',
+  initialValue: {
+    size: 'medium',
+  },
   fields: [
     {
       name: 'title',
@@ -66,6 +69,20 @@ export default {
       type: 'markdown',
       codegen: { required: true },
       validation: (Rule) => Rule.required(),
+    },
+    {
+      name: 'size',
+      title: 'Size',
+      type: 'string',
+      codegen: { required: true },
+      validation: (Rule) => Rule.required(),
+      options: {
+        list: [
+          { title: 'Small', value: 'small' },
+          { title: 'Medium', value: 'medium' },
+          { title: 'Large', value: 'large' },
+        ],
+      },
     },
   ],
 
