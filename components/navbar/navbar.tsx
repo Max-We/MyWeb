@@ -27,12 +27,12 @@ export default function Navbar() {
         icon={NavbarIcon.Activities}
         isActive={router.pathname.includes('activities')}
       />
-      <NavbarButton
+      {/* <NavbarButton
         label="Projects"
         href="/projects"
         icon={NavbarIcon.Projects}
         isActive={router.pathname.includes('projects')}
-      />
+      /> */}
       <NavbarButton
         label="About Me"
         href="/about-me"
