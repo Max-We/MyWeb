@@ -16,8 +16,8 @@ export default function DarkModeToggle() {
   return (
     <button
       onClick={changeTheme}
-      className="invisible fixed bottom-0 right-0 mr-5 mb-5 flex h-14 w-14 items-center justify-center rounded-full border bg-white shadow 
-        dark:border-gray-700 dark:bg-gray-800
+      className="invisible fixed bottom-0 right-0 mr-5 mb-5 flex h-14 w-14 items-center justify-center rounded-full border bg-white shadow hover:bg-zinc-200
+        dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700
         xl:visible"
     >
       {theme == 'dark' ? (
