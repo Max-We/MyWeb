@@ -1,5 +1,5 @@
 import { ArticlePreviewProps } from 'components/blog/preview/article-preview.model'
-import { Tweet } from './tweet.model'
+import { Tweet } from '../social/twitter/tweet/tweet.model'
 
 export type Activity = {
   createDate: string

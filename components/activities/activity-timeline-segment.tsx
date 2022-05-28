@@ -1,9 +1,9 @@
 import ArticlePreview from 'components/blog/preview/article-preview'
+import TweetView from 'components/social/twitter/tweet/tweet'
 import ActivityTimelineLine from './activity-timeline-line'
 import { BlogActivity, TweetActivity } from './activity.model'
-import TweetView from './tweet'
 
-export default function ActivityTimelineElement({
+export default function ActivityTimelineSegment({
   activity,
   isStart,
 }: {

@@ -7,10 +7,9 @@ export default function Navbar() {
   const router = useRouter()
 
   return (
-    // Todo: z-index above card hover
     <div
       className="fixed bottom-0 z-50 flex w-screen justify-around border-t
-      dark:border-gray-800 xl:grid xl:h-screen xl:w-72 xl:content-start xl:justify-start xl:gap-2 xl:border-r xl:border-t-0 xl:bg-none xl:p-5 xl:text-lg"
+      bg-white dark:border-gray-800 dark:bg-gray-900 xl:grid xl:h-screen xl:w-72 xl:content-start xl:justify-start xl:gap-2 xl:border-r xl:border-t-0 xl:bg-none xl:p-5 xl:text-lg"
     >
       {/* <h2 className="invisible w-0 xl:visible xl:w-auto xl:p-4 xl:text-3xl">
         MyWeb

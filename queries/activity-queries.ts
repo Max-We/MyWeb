@@ -6,12 +6,17 @@ import {
   TweetActivity,
   tweetActivityTexts,
 } from 'components/activities/activity.model'
-import { TwitterUser } from 'components/activities/tweet.model'
+import { TwitterUser } from 'components/social/twitter/tweet/tweet.model'
 import { format } from 'date-fns'
 import imageUrlBuilder from '@sanity/image-url'
 
 import { Article } from 'schema'
 import { getAllPreviewsQuery } from './article-queries'
+import {
+  ImageDimensions,
+  largeArticlePreviewImage,
+  mediumArticlePreviewImage,
+} from 'components/blog/preview/article-preview.model'
 
 export async function getTwitterActivities() {
   const twitterUser: TwitterUser = await getTwitterUser()
@@ -70,6 +75,24 @@ export async function getBlogActivities() {
   const imageBuilder = imageUrlBuilder(sanityClient)
 
   const blogActivities: BlogActivity[] = previews.map((preview) => {
+    var imageUrl = ''
+    // Small article-preview has no image
+    if (preview.size != 'small') {
+      var previewImageSize: ImageDimensions | null
+      switch (preview.size) {
+        case 'medium':
+          previewImageSize = mediumArticlePreviewImage
+        case 'large':
+          previewImageSize = largeArticlePreviewImage
+      }
+
+      imageUrl = imageBuilder
+        .image(preview.mainImage)
+        .width(previewImageSize.width)
+        .height(previewImageSize.height)
+        .url()
+    }
+
     return {
       createDate: preview.publishedAt,
       description: formatActivityDescription(
@@ -82,12 +105,8 @@ export async function getBlogActivities() {
         summary: preview.summary,
         publishedAt: preview.publishedAt,
         readingDurationMinutes: preview.readingDuration,
-        imageUrl: imageBuilder
-          .image(preview.mainImage)
-          .width(500)
-          .height(500)
-          .url(),
-        displaySize: 'Small',
+        imageUrl: imageUrl,
+        displaySize: preview.size,
       },
     }
   })

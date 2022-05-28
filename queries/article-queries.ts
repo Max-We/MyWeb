@@ -7,6 +7,7 @@ export const getAllPreviewsQuery = groq`
         summary,
         publishedAt,
         mainImage,
-        readingDuration
+        readingDuration,
+        size
       }
   `

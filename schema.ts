@@ -104,6 +104,13 @@ export interface Article extends SanityDocument {
    *
    */
   body: Markdown;
+
+  /**
+   * Size — `string`
+   *
+   *
+   */
+  size: "small" | "medium" | "large";
 }
 
 /**
