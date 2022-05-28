@@ -10,6 +10,7 @@ import { Article } from 'schema'
 import ArticlePreview from '../components/blog/preview/article-preview'
 import imageUrlBuilder from '@sanity/image-url'
 
+// Todo: Use query from /queries
 // Todo: Add pagination if more than 20 posts
 const getAllPreviewsQuery = groq`
       *[_type == "article"] | order(publishedAt desc)[0...20] {

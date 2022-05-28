@@ -11,7 +11,19 @@ export default function ArticlePreview(props: ArticlePreviewProps) {
 
   switch (props.displaySize) {
     case 'small':
-      content = <></>
+      content = (
+        <div className="h-content flex w-full justify-between rounded-xl border shadow dark:border-gray-700 dark:bg-gray-800">
+          <div className="flex w-full flex-col p-5">
+            <h2 className="mb-1 text-sm font-bold line-clamp-3 lg:text-xl lg:line-clamp-2">
+              {props.title}
+            </h2>
+            <div className="mt-auto flex flex-row justify-between text-xs font-light text-neutral-500 dark:text-gray-400 lg:text-base">
+              <ArticleDate date={props.publishedAt} />
+              <span className="whitespace-nowrap">{`${props.readingDurationMinutes} min read`}</span>
+            </div>
+          </div>
+        </div>
+      )
       break
     case 'medium':
       content = (
@@ -29,6 +41,7 @@ export default function ArticlePreview(props: ArticlePreviewProps) {
               <span className="whitespace-nowrap">{`${props.readingDurationMinutes} min read`}</span>
             </div>
           </div>
+          {/* Todo: get width and height from model values */}
           <Image
             src={props.imageUrl}
             width={175}
