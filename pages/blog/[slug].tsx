@@ -1,21 +1,14 @@
 import { getClient } from '@lib/sanity'
 import ArticleDate from 'components/blog/article/article-date'
-import { groq } from 'next-sanity'
-import Head from 'next/head'
 import ReactMarkdown from 'react-markdown'
 import { Article } from 'schema'
 import imageUrlBuilder from '@sanity/image-url'
 import Image from 'next/image'
 import TwitterContactForm from 'components/social/twitter/profile/twitter-contact-form'
 import ArticleMeta from 'components/blog/article/article-meta'
-
-const getAllSlugsQuery = groq`
-      *[_type == "article"] { slug }
-  `
-
-const getPostQuery = groq`
-      *[_type == "article" && slug.current == $slug][0]
-  `
+import { TwitterUser } from 'components/social/twitter/tweet/tweet.model'
+import { getTwitterUser } from 'queries/twitter-queries'
+import { getPostQuery, getAllSlugsQuery } from 'queries/article-queries'
 
 const imageWidth = 1600
 const imageHeight = 900
@@ -23,9 +16,11 @@ const imageHeight = 900
 export default function ArticlePage({
   postdata,
   imageUrl,
+  twitterUser,
 }: {
   postdata: Article
   imageUrl: string
+  twitterUser: TwitterUser
 }) {
   return (
     <>
@@ -38,15 +33,17 @@ export default function ArticlePage({
             <div className="text-center text-neutral-500 dark:text-gray-400">
               <ArticleDate date={postdata.publishedAt} />
             </div>
-            <div className="my-8 block">
-              <Image
-                src={imageUrl}
-                width={imageWidth}
-                height={imageHeight}
-                layout="intrinsic"
-                draggable="false"
-              />
-            </div>
+            {postdata.size != 'small' && (
+              <div className="my-8 block">
+                <Image
+                  src={imageUrl}
+                  width={imageWidth}
+                  height={imageHeight}
+                  layout="intrinsic"
+                  draggable="false"
+                />
+              </div>
+            )}
             <div className="flex justify-center">
               <div className="prose dark:prose-invert">
                 <ReactMarkdown>{postdata.body}</ReactMarkdown>
@@ -54,7 +51,7 @@ export default function ArticlePage({
             </div>
           </article>
 
-          <TwitterContactForm />
+          <TwitterContactForm {...twitterUser} />
         </div>
       </div>
     </>
@@ -97,10 +94,13 @@ export async function getStaticProps({
     .height(imageHeight)
     .url()
 
+  const twitterUser = await getTwitterUser()
+
   return {
     props: {
       postdata: post,
       imageUrl: imageUrl,
+      twitterUser: twitterUser,
     },
   }
 }

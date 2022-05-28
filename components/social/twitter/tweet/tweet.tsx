@@ -23,9 +23,9 @@ export default function TweetView(props: Tweet) {
 
             <span className="ml-3 flex w-fit flex-col">
               <span className="flex">
-                <p className="mr-1 font-bold">{props.user.username}</p>
+                <p className="mr-1 font-bold">{props.user.name}</p>
                 <p className="font-light text-gray-500 dark:text-gray-400">
-                  @{props.user.name}
+                  @{props.user.username}
                 </p>
               </span>
               <p>{props.content}</p>

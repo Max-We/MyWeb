@@ -1,9 +1,9 @@
 import { ChatIcon } from '@heroicons/react/outline'
 import Link from 'next/link'
 
-export default function TwitterDmButton() {
+export default function TwitterDmButton({ name: username }: { name: string }) {
   return (
-    <Link href="https://twitter.com/MaxWeichart">
+    <Link href={`https://twitter.com/${username}`}>
       <a target="_blank">
         <button
           className="flex items-center justify-center rounded-full bg-sky-500 p-3 font-bold
