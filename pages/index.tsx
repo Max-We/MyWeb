@@ -65,5 +65,6 @@ export async function getStaticProps() {
     props: {
       previewsdata: previewProps,
     },
+    revalidate: 21600, // refresh every 6 hours
   }
 }
