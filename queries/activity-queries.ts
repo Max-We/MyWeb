@@ -6,14 +6,14 @@ import {
   TweetActivity,
   tweetActivityTexts,
 } from 'components/activities/activity.model'
-import { TwitterUser } from 'components/activities/tweet.model'
+import { TwitterUser } from 'components/social/twitter/tweet/tweet.model'
 import { format } from 'date-fns'
 import imageUrlBuilder from '@sanity/image-url'
 
 import { Article } from 'schema'
 import { getAllPreviewsQuery } from './article-queries'
 import {
-  ArticlePreviewImageSize,
+  ImageDimensions,
   largeArticlePreviewImage,
   mediumArticlePreviewImage,
 } from 'components/blog/preview/article-preview.model'
@@ -78,7 +78,7 @@ export async function getBlogActivities() {
     var imageUrl = ''
     // Small article-preview has no image
     if (preview.size != 'small') {
-      var previewImageSize: ArticlePreviewImageSize | null
+      var previewImageSize: ImageDimensions | null
       switch (preview.size) {
         case 'medium':
           previewImageSize = mediumArticlePreviewImage

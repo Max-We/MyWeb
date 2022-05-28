@@ -1,29 +1,16 @@
 import { getClient } from '@lib/sanity'
 import {
-  ArticlePreviewImageSize,
+  ImageDimensions,
   ArticlePreviewProps,
   largeArticlePreviewImage,
   mediumArticlePreviewImage,
 } from 'components/blog/preview/article-preview.model'
-import { groq } from 'next-sanity'
 import { Article } from 'schema'
 import ArticlePreview from '../components/blog/preview/article-preview'
 import imageUrlBuilder from '@sanity/image-url'
+import { getAllPreviewsQuery } from 'queries/article-queries'
 
-// Todo: Use query from /queries
 // Todo: Add pagination if more than 20 posts
-const getAllPreviewsQuery = groq`
-      *[_type == "article"] | order(publishedAt desc)[0...20] {
-        slug,
-        title,
-        summary,
-        publishedAt,
-        mainImage,
-        readingDuration,
-        size
-      }
-  `
-
 export default function Home({
   previewsdata,
 }: {
@@ -48,7 +35,7 @@ export async function getStaticProps() {
     var imageUrl = ''
     // Small article-preview has no image
     if (preview.size != 'small') {
-      var previewImageSize: ArticlePreviewImageSize | null
+      var previewImageSize: ImageDimensions | null
       switch (preview.size) {
         case 'medium':
           previewImageSize = mediumArticlePreviewImage

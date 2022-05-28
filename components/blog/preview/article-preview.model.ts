@@ -10,17 +10,17 @@ export type ArticlePreviewProps = {
   displaySize: Article['size']
 }
 
-export type ArticlePreviewImageSize = {
+export type ImageDimensions = {
   width: number
   height: number
 }
 
-export const mediumArticlePreviewImage: ArticlePreviewImageSize = {
+export const mediumArticlePreviewImage: ImageDimensions = {
   width: 500,
   height: 500,
 }
 
-export const largeArticlePreviewImage: ArticlePreviewImageSize = {
+export const largeArticlePreviewImage: ImageDimensions = {
   width: 1500,
   height: 700,
 }

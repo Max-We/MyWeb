@@ -7,7 +7,7 @@ import {
   getBlogActivities,
   getTwitterActivities,
 } from 'queries/activity-queries'
-import ActivityTimelineElement from 'components/activities/activity-timeline-element'
+import ActivityTimelineSegment from 'components/activities/activity-timeline-segment'
 
 export default function Activities({
   activities,
@@ -18,7 +18,7 @@ export default function Activities({
     <>
       {activities.map((activity: TweetActivity | BlogActivity, index) => {
         return (
-          <ActivityTimelineElement activity={activity} isStart={index == 0} />
+          <ActivityTimelineSegment activity={activity} isStart={index == 0} />
         )
       })}
     </>

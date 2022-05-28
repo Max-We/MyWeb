@@ -6,7 +6,7 @@ import ReactMarkdown from 'react-markdown'
 import { Article } from 'schema'
 import imageUrlBuilder from '@sanity/image-url'
 import Image from 'next/image'
-import TwitterContactForm from 'components/social/twitter/twitter-contact-form'
+import TwitterContactForm from 'components/social/twitter/profile/twitter-contact-form'
 import ArticleMeta from 'components/blog/article/article-meta'
 
 const getAllSlugsQuery = groq`
