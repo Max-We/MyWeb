@@ -11,3 +11,11 @@ export const getAllPreviewsQuery = groq`
         size
       }
   `
+
+export const getAllSlugsQuery = groq`
+      *[_type == "article"] { slug }
+  `
+
+export const getPostQuery = groq`
+      *[_type == "article" && slug.current == $slug][0]
+  `
