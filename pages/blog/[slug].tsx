@@ -33,7 +33,7 @@ export default function ArticlePage({
             <div className="text-center text-neutral-500 dark:text-gray-400">
               <ArticleDate date={postdata.publishedAt} />
             </div>
-            {postdata.size != 'small' && (
+            {imageUrl != '' && imageUrl != null && (
               <div className="my-8 block">
                 <Image
                   src={imageUrl}
@@ -102,5 +102,6 @@ export async function getStaticProps({
       imageUrl: imageUrl,
       twitterUser: twitterUser,
     },
+    revalidate: 300, // refresh every 5 Minutes
   }
 }

@@ -43,7 +43,7 @@ export async function getStaticProps() {
     props: {
       activities: activities,
     },
-    revalidate: 21600, // refresh every 6 hours
+    revalidate: 300, // refresh every 5 Minutes
   }
 
   function sortActivitiesByDateDesc(activities: Activity[]) {
